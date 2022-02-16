@@ -6,7 +6,6 @@ const API = 'https://randomfox.ca/floof/';
 const btnAdd = document.getElementById('addImg');
 const btnClean = document.getElementById('clean');
 
-
 async function fetchData() {
     const response  = await fetch(API);
     const data      = await response.json();
@@ -20,13 +19,21 @@ async function fetchData() {
     image.classList.add('mx-auto');
     image.width = 320;
 
-    container.append(image);
+    const imageWrapper = document.createElement("div");
+    imageWrapper.className = "bg-gray-300";
+    imageWrapper.style.minHeight = "100px";
+    imageWrapper.style.display = "inline-block";
+
+    imageWrapper.append(image);
+    container.append(imageWrapper);
     images.append(container);
-    registerImage(image);
+    registerImage(container);
 }
 
 btnAdd.addEventListener('click', fetchData);
 
 btnClean.addEventListener('click', ()=>{
-    images.innerHTML = "";
+    [...images.childNodes].forEach(child=>{
+        child.remove();
+    })
 })
