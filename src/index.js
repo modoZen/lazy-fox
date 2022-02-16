@@ -16,7 +16,7 @@ async function fetchData() {
     container.classList.add('p-4');
 
     const image = document.createElement("img");
-    image.src = url;
+    image.dataset.src = url;
     image.classList.add('mx-auto');
     image.width = 320;
 
