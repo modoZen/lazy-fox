@@ -1,7 +1,4 @@
-/**
- * This file is just a silly example to show everything working in the browser.
- * When you're ready to start on your site, clear the file. Happy hacking!
- **/
+import { registerImage } from './lazy';
 
 console.log('Happy hacking :)');
 
@@ -25,6 +22,7 @@ async function fetchData() {
 
     container.append(image);
     images.append(container);
+    registerImage(image);
 }
 
 btnAdd.addEventListener('click', fetchData);
