@@ -16,5 +16,6 @@
   },
   "dependencies": {
     "hyperscript": "^2.0.2"
-  }
+  },
+  "homepage": "https://modozen.github.io/lazy-fox/"
 }

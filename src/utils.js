@@ -2,7 +2,7 @@ const fetchUrl = async (API)=> {
     const response          = await fetch(API);
     // const data      = await response.json();
     // const url       = data.image;
-    const { image : url}    = await response.json();
+    const { image : url }   = await response.json();
     return url;
 }
 
