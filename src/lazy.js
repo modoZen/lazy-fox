@@ -1,33 +1,19 @@
-let appendedImages = 0;
-let loadedImages = 0;
+const isIntersecting = (entry)=> entry.isIntersecting // true si esta dentro de la pantalla
 
-const printLog = () => {
-
-    console.log(`⚪ Se han agregado ${appendedImages} imágenes`);
-    console.log(`🟣 Se han cargado ${loadedImages} imágenes`);
-    console.log("---------------------------------------");
-}
-
-const isIntersecting = (entry)=>{
-    return entry.isIntersecting // true si esta dentro de la pantalla
-}
-
-const loadImage = (entry)=>{
-    const container = entry.target;
-    const img = container.querySelector('img');
-    img.src = img.dataset.src;
-    observer.unobserve(container);
-    loadedImages++;
-    printLog();
+const accion = (entry)=>{
+    const nodo = entry.target;
+    console.log('holis');
+    observer.unobserve(nodo);
 }
 
 const observer = new IntersectionObserver((entries)=>{
-    entries.filter(isIntersecting).forEach(loadImage);
+    const entry = entries[0];
+    if(isIntersecting(entry)) accion(entry)
+    // entries.filter(isIntersecting).forEach(accion);
+    console.log(entries)
 });
 
 export const registerImage = (image) =>{
     // IntersectactionObservador -> observer(image)
-    appendedImages++;
-    printLog()
     observer.observe(image);
 }

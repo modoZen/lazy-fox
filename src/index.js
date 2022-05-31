@@ -1,3 +1,5 @@
+import { registerImage } from "./lazy";
+
 const API = 'https://randomfox.ca/floof/';
 const mountNode = document.querySelector('#images')
 const btnAdd = document.getElementById('addImg');
@@ -24,6 +26,7 @@ const createImageNode = async ()=>{
 
 const addImage = async ()=>{
     const newImage = await createImageNode()
+    registerImage(newImage);
     mountNode.append(newImage);
 }
 
