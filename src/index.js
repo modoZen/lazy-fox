@@ -17,7 +17,7 @@ const createImageNode = async ()=>{
     const container = document.createElement("div");
     container.classList.add('p-4');
     const image = document.createElement("img");
-    image.src = await fetchUrl();
+    image.dataset.src = await fetchUrl();
     image.classList.add('mx-auto');
     image.width = 320;
     container.append(image);
